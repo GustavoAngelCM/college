@@ -35,13 +35,28 @@ const Home: NextPage = () => {
 
   return (
     <div className='flex justify-center items-center w-screen h-screen'>
-      <div>
-        {
-          ( width < height ) ? 
-            SlidesVertical(time)
-            :
-            SlidesHorizontal(time)
-        }
+      {
+        (width < height) ?
+          SlidesVertical(time)
+          :
+          SlidesHorizontal(time)
+      }
+      <div className='p-4 rounded-md bg-white z-10 sm:w-5/12 w-11/12'>
+        <div className='p-2 flex flex-col items-center'>
+          <h1 className='text-center'>College</h1>
+          <Image src={'/college-1200.png'} alt={'college logo'} width={80} height={80} />
+        </div>
+        <form className='flex flex-col p-4'>
+          <label>Correo electronico</label>
+          <input placeholder='ejemplo@correo.com' type='text' className='text-center w-full py-2 mb-4 bg-sky-200 rounded-md focus:outline-none focus:border-sky-700 focus:ring-2 focus:ring-sky-700 text-sky-700' />
+          <label>Contraseña</label>
+          <input placeholder='******************' type='password' className='text-center w-full py-2 mb-4 bg-sky-200 rounded-md focus:outline-none focus:border-sky-700 focus:ring-2 focus:ring-sky-700 text-sky-700' />
+          <button
+            className={'bg-sky-500 my-3 py-2 px-4 rounded-lg text-white uppercase text-l font-medium hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-400'}
+          >
+            Ingresar
+          </button>
+        </form>        
       </div>
     </div>
   )
