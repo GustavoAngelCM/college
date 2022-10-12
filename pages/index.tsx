@@ -1,32 +1,24 @@
 import type { NextPage } from 'next'
 import Image from 'next/image'
-import { imagesHorizontal, imagesVertical } from './../data/design'
+import { BUTTON_SKY, BUTTON_PY2_PX4_MY3, CARD_WHITE_P4, FLEX_COL, FLEX_ICENTERCOL, FLEX_JICENTER, imagesHorizontal, imagesVertical, INPUT_SKY, INPUT_PY2_MB4, I_SCREEN, SCREEN, TXT_UP_LG_M, WFULL, W_11_SM_5 } from './../data/design'
 import { useTimer } from 'use-timer'
-import { useEffect } from 'react';
-import { useWindowSize } from '@react-hook/window-size';
-import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react'
+import { useWindowSize } from '@react-hook/window-size'
+import { useRouter } from 'next/router'
+import { IimageToSlide } from '../interfaces/design'
 
-const SlidesHorizontal = (time: number) => imagesHorizontal.map((image, i) => (
+const Slides = (time: number, imagesToSlide: IimageToSlide[]) => imagesToSlide.map((image, i) => (
   <Image
     key={image.id}
     src={image.src}
-    className={`${(time % 7 === i) ? '!flex' : '!hidden'} !w-screen !h-screen animate-slide`}
-    layout={"fill"}
-    alt={image.alt}
-  />
-))
-
-const SlidesVertical = (time: number) => imagesVertical.map((image, i) => (
-  <Image
-    key={image.id}
-    src={image.src}
-    className={`${(time % 7 === i) ? '!flex' : '!hidden'} !w-screen !h-screen animate-slide`}
+    className={`${(time % 7 === i) ? '!flex' : '!hidden'} ${I_SCREEN} animate-slide`}
     layout={"fill"}
     alt={image.alt}
   />
 ))
 
 const Home: NextPage = () => {
+  const [imagesToSlide, setImagesToSlide] = useState(imagesHorizontal)
   const { time, start } = useTimer({ interval: 3000 })
   const [width, height] = useWindowSize()
   const router = useRouter()
@@ -34,30 +26,33 @@ const Home: NextPage = () => {
   const toDashboard = () => router.push('dashboard')
 
   useEffect(() => {
+    if (width < height) {
+      setImagesToSlide(imagesVertical)
+    } else {
+      setImagesToSlide(imagesHorizontal)
+    }
+  }, [width, height])
+
+  useEffect(() => {
     start()
   }, [start])
 
   return (
-    <div className='flex justify-center items-center w-screen h-screen'>
-      {
-        (width < height) ?
-          SlidesVertical(time)
-          :
-          SlidesHorizontal(time)
-      }
-      <div className='p-4 rounded-md bg-white z-10 sm:w-5/12 w-11/12'>
-        <div className='p-2 flex flex-col items-center'>
+    <div className={`${FLEX_JICENTER} ${SCREEN}`}>
+      { Slides(time, imagesToSlide) }
+      <div className={`${W_11_SM_5} ${CARD_WHITE_P4} z-10`}>
+        <div className={`${FLEX_ICENTERCOL} p-2`}>
           <h1 className='text-center'>College</h1>
           <Image src={'/college-1200.png'} alt={'college logo'} width={80} height={80} />
         </div>
-        <div className='flex flex-col p-4'> {/* changue for tag form */}
+        <div className={`${FLEX_COL} p-4`}> {/* changue for tag form */}
           <label>Correo electronico</label>
-          <input placeholder='ejemplo@correo.com' type='text' className='text-center w-full py-2 mb-4 bg-sky-200 rounded-md focus:outline-none focus:border-sky-700 focus:ring-2 focus:ring-sky-700 text-sky-700' />
+          <input placeholder='ejemplo@correo.com' type='text' className={`${WFULL} ${INPUT_PY2_MB4} ${INPUT_SKY} text-center`} />
           <label>Contraseña</label>
-          <input placeholder='******************' type='password' className='text-center w-full py-2 mb-4 bg-sky-200 rounded-md focus:outline-none focus:border-sky-700 focus:ring-2 focus:ring-sky-700 text-sky-700' />
+          <input placeholder='******************' type='password' className={`${WFULL} ${INPUT_PY2_MB4} ${INPUT_SKY} text-center`} />
           <button
             onClick={toDashboard}
-            className={'bg-sky-500 my-3 py-2 px-4 rounded-lg text-white uppercase text-l font-medium hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-400'}
+            className={`${BUTTON_PY2_PX4_MY3} ${BUTTON_SKY} ${TXT_UP_LG_M} text-white`}
           >
             Ingresar
           </button>

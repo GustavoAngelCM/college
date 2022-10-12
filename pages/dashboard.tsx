@@ -1,19 +1,23 @@
 import { NextPage } from "next"
+import { FLEX_JICENTER, FLEX_WRAP_AROUND_ICENTER, FOOTER_APP, HEADER_APP, H_4_W_5__6, SCREEN, SCROLLBAR_RED, SCROLL_Y, TXT_CENTER_P4, TXT_UP_SM_SB, WFULL } from "../data/design"
 
 const Dashboard: NextPage = () => {
 
   return (
-    <div className='flex justify-center items-center w-screen h-screen bg-sky-50'>
-      <header className='absolute top-0 w-full text-center p-4 bg-sky-700 text-white font-semibold text-sm uppercase'>
+    <div className={`${FLEX_JICENTER} ${SCREEN} bg-sky-50`}>
+      <header className={`${TXT_UP_SM_SB} ${WFULL} ${TXT_CENTER_P4} ${HEADER_APP} bg-sky-700 text-white`}>
         <h1>Bienvenido</h1>
       </header>
-      <div className="flex flex-wrap items-center justify-around h-4/6 w-5/6 overflow-y-auto scrollbar-thin scrollbar-thumb-red-700 scrollbar-track-red-300 scrollbar-thumb-rounded-full scrollbar-track-rounded-full">
+      <div className={`${FLEX_WRAP_AROUND_ICENTER} ${SCROLL_Y} ${SCROLLBAR_RED} ${H_4_W_5__6} md:w-2/6`}>
+        
         <div className='border-2 border-sky-700 p-1 rounded-md m-2 cursor-pointer w-28 h-28 text-center text-sky-700 font-bold transition-all duration-1000 hover:bg-sky-200'>
           <svg className="h-16 w-16 text-sky-700 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
           </svg>
           <p className='truncate'>Docentes</p>
         </div>
+
+        
         <div className='border-2 border-sky-700 p-1 rounded-md m-2 cursor-pointer w-28 h-28 text-center text-sky-700 font-bold transition-all duration-1000 hover:bg-sky-200'>
           <svg className="h-16 w-16 text-sky-700 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
@@ -56,7 +60,7 @@ const Dashboard: NextPage = () => {
           <p className='truncate'>Ajustes</p>
         </div>
       </div>
-      <footer className='absolute bottom-0 w-full text-center p-4 bg-sky-700 text-white font-semibold text-sm uppercase'>
+      <footer className={`${TXT_UP_SM_SB} ${WFULL} ${TXT_CENTER_P4} ${FOOTER_APP} bg-sky-700 text-white`}>
         <h5>detalles</h5>
       </footer>
     </div>
