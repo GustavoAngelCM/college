@@ -1,33 +1,39 @@
-import { useState } from "react"
 import { NextPage } from "next"
-import { DATA_TEACHERS } from "../data/college"
-import { FLEX_JICENTER, FLEX_WRAP_AROUND_ICENTER, H_4_W_5__6, SCREEN, SCROLLBAR_VIOLET, SCROLL_Y } from "../data/design"
-import HeaderAPP from "../components/layouts/header"
+import { useState } from "react"
 import FooterAPP from "../components/layouts/footer"
+import HeaderAPP from "../components/layouts/header"
+import { FLEX_JICENTER, FLEX_WRAP_AROUND_ICENTER, H_4_W_5__6, SCREEN, SCROLLBAR_VIOLET, SCROLL_Y } from "../data/design"
+import { DATA_STUDENTS } from "./../data/college"
 
-const Teacher: NextPage = () => {
-  const [teachersF, setTeachersF] = useState(DATA_TEACHERS())
+const Student: NextPage = () => {
+  const [studentsF, setStudentsF] = useState(DATA_STUDENTS())
   return (
     <div className={`${FLEX_JICENTER} ${SCREEN}`}>
       <HeaderAPP />
 
       <div className={`${FLEX_WRAP_AROUND_ICENTER} ${H_4_W_5__6} flex-col`}>
-        <div className="shadow-lg p-4 rounded-lg"><h1 className="text-lg font-thin">Lista de profesores Gestion-2022</h1></div>
+        <div className="shadow-lg p-4 rounded-lg"><h1 className="text-lg font-thin">Lista de estudiantes Gestion-2022</h1></div>
         <div className={`${SCROLL_Y} ${SCROLLBAR_VIOLET} h-2/3 w-full md:w-6/12`}>
           <table className="w-full bg-violet-50">
             <thead className="sticky top-0">
               <tr className="bg-violet-700 text-white">
                 <th className="p-2">Nro</th>
                 <th className="p-2">Apellidos y nombres</th>
+                <th className="p-2">Curso</th>
+                <th className="p-2">Grado</th>
+                <th className="p-2">Nota</th>
                 <th className="p-2">Opciones</th>
               </tr>
             </thead>
             <tbody>
               {
-                teachersF.slice(0, 10).map((_teacher, i) => (
+                studentsF.slice(0, 10).map((_teacher, i) => (
                   <tr key={_teacher.uid}>
-                    <td className="p-2">{ i + 1 }</td>
+                    <td className="p-2">{i + 1}</td>
                     <td className="p-2">{_teacher.fullName}</td>
+                    <td className="p-2">{_teacher.course}</td>
+                    <td className="p-2">{_teacher.grade}</td>
+                    <td className="p-2">{_teacher.note}</td>
                     <td className="p-2 flex justify-evenly">
                       <button>
                         <svg className="h-8 w-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -48,16 +54,16 @@ const Teacher: NextPage = () => {
             </tbody>
             <tfoot className="sticky bottom-0 bg-violet-400 text-white">
               <tr >
-                <td colSpan={3} className="text-right px-6"><span className="cursor-pointer">Cargar 10 mas de {teachersF.length}</span></td>
+                <td colSpan={6} className="text-right px-6"><span className="cursor-pointer">Cargar 10 mas de {studentsF.length}</span></td>
               </tr>
             </tfoot>
           </table>
         </div>
       </div>
 
-      <FooterAPP/>
+      <FooterAPP />
     </div>
   )
 }
 
-export default Teacher
+export default Student

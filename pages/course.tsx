@@ -10,7 +10,7 @@ const Course: NextPage = () => {
       <HeaderAPP />
         <div className={`${FLEX_WRAP_AROUND_ICENTER} ${SCROLL_Y} ${SCROLLBAR_VIOLET} ${H_4_W_5__6} md:w-2/6`}>
           {
-            DATA_COURSES.map((course, i) => (
+            DATA_COURSES.slice(0, 13).map((course, i) => (
               <div key={i} className={`${CARD_B2_P1_M2} ${H_28_W_28} ${TXT_CENTER_B} ${TRANSITION_ALL} ${ITEM_MENU_VIOLET} cursor-pointer`}>
                 <span className="h-16 w-16 text-5xl">{ course.course }</span>
                 <p className='truncate'>{course.grade}</p>

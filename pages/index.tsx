@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Image from 'next/image'
-import { BUTTON_SKY, BUTTON_PY2_PX4_MY3, CARD_WHITE_P4, FLEX_COL, FLEX_ICENTERCOL, FLEX_JICENTER, imagesHorizontal, imagesVertical, INPUT_SKY, INPUT_PY2_MB4, I_SCREEN, SCREEN, TXT_UP_LG_M, WFULL, W_11_SM_5 } from './../data/design'
+import { BUTTON_PURPLE, BUTTON_PY2_PX4_MY3, CARD_WHITE_P4, FLEX_COL, FLEX_ICENTERCOL, FLEX_JICENTER, imagesHorizontal, imagesVertical, INPUT_PURPLE, INPUT_PY2_MB4, I_SCREEN, SCREEN, TXT_UP_LG_M, WFULL, W_11_SM_5 } from './../data/design'
 import { useTimer } from 'use-timer'
 import { useEffect, useState } from 'react'
 import { useWindowSize } from '@react-hook/window-size'
@@ -47,12 +47,12 @@ const Home: NextPage = () => {
         </div>
         <div className={`${FLEX_COL} p-4`}> {/* changue for tag form */}
           <label>Correo electronico</label>
-          <input placeholder='ejemplo@correo.com' type='text' className={`${WFULL} ${INPUT_PY2_MB4} ${INPUT_SKY} text-center`} />
+          <input placeholder='ejemplo@correo.com' type='text' className={`${WFULL} ${INPUT_PY2_MB4} ${INPUT_PURPLE} text-center`} />
           <label>Contraseña</label>
-          <input placeholder='******************' type='password' className={`${WFULL} ${INPUT_PY2_MB4} ${INPUT_SKY} text-center`} />
+          <input placeholder='******************' type='password' className={`${WFULL} ${INPUT_PY2_MB4} ${INPUT_PURPLE} text-center`} />
           <button
             onClick={toDashboard}
-            className={`${BUTTON_PY2_PX4_MY3} ${BUTTON_SKY} ${TXT_UP_LG_M} text-white`}
+            className={`${BUTTON_PY2_PX4_MY3} ${BUTTON_PURPLE} ${TXT_UP_LG_M} text-white`}
           >
             Ingresar
           </button>

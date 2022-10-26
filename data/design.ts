@@ -163,7 +163,11 @@ export const FOOTER_APP = "absolute bottom-0"
 
 export const INPUT_SKY = "bg-sky-200 focus:outline-none focus:border-sky-700 focus:ring-2 focus:ring-sky-700 text-sky-800"
 
+export const INPUT_PURPLE = "bg-purple-200 focus:outline-none focus:border-purple-700 focus:ring-2 focus:ring-purple-700 text-purple-800"
+
 export const BUTTON_SKY = "bg-sky-500 hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-400"
+
+export const BUTTON_PURPLE = "bg-purple-500 hover:bg-purple-600 active:bg-purple-700 focus:outline-none focus:ring focus:ring-purple-400"
 
 export const SCROLLBAR_RED = "scrollbar-thin scrollbar-thumb-red-700 scrollbar-track-red-300 scrollbar-thumb-rounded-full scrollbar-track-rounded-full"
 

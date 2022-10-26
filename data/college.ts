@@ -9,6 +9,14 @@ export const DATA_TEACHERS = () => Array.from({ length: quantityTeacher, }, (_, 
   fullName: faker.name.fullName()
 }))
 
+export const DATA_STUDENTS = () => Array.from({ length: quantityStudents, }, (_, i) => ({
+  uid: faker.datatype.uuid(),
+  fullName: faker.name.fullName(),
+  course: faker.helpers.arrayElement(['1A', '1B', '1C', '2A', '2B', '2C', '3A', '3B', '3C', '4A', '4B', '4C', '5A', '5B', '5C', '6A', '6B', '6C']),
+  grade: faker.helpers.arrayElement(['primaria', 'secundaria']),
+  note: faker.datatype.number({ min: 10, max: 100, precision: 0.01 })
+}))
+
 export const DATA_COURSES = [
   {
     uid: faker.datatype.uuid(),
