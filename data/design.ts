@@ -1,5 +1,6 @@
 import { IimageToSlide } from "../interfaces/design"
 import { ADJUSTMENT_ICO, COURSE_ICO, NOTE_ICO, REPORT_ICO, SEARCH_ICO, STUDENT_ICO, TEACHER_ICO } from "../components/ico"
+import { DATA_COURSES, DATA_MATTER, DATA_STUDENTS, DATA_WORK } from "./college"
 
 export const imagesHorizontal: IimageToSlide[] = [
   {
@@ -149,6 +150,8 @@ export const INPUT_PY2_MB4 = "rounded-md py-2 mb-4"
 
 export const BUTTON_PY2_PX4_MY3 = "rounded-lg py-2 px-4 my-3"
 
+export const BUTTON_PY2_PX4_MB4 = "rounded-lg py-2 px-4 mb-3"
+
 export const TXT_UP_LG_M = "uppercase text-lg font-medium"
 
 export const TXT_UP_SM_SB = "uppercase text-sm font-semibold"
@@ -183,3 +186,61 @@ export const ITEM_MENU_VIOLET = "text-violet-600 border-violet-600 hover:bg-viol
 
 export const TRANSITION_ALL = "transition-all duration-1000"
 
+export const COURSES_FOR_SELECT = DATA_COURSES.reduce((prev: any[], course) => {
+  return [
+    ...prev,
+    {
+      value: course.uid,
+      label: `${course.course} de ${course.grade}`
+    }
+  ]
+}, [])
+
+export const MATTER_FOR_SELECT = DATA_MATTER.reduce((prev: any[], matter) => {
+  return [
+    ...prev,
+    {
+      value: matter.uid,
+      label: matter.name
+    }
+  ]
+}, [])
+
+export const STUDENTS_FOR_SELECT = DATA_STUDENTS().reduce((prev: any[], student) => {
+  return [
+    ...prev,
+    {
+      value: student.uid,
+      label: student.fullName
+    }
+  ]
+}, [])
+
+export const WORKS_FOR_SELECT = DATA_WORK().reduce((prev: any[], work) => {
+  return [
+    ...prev,
+    {
+      value: work.uid,
+      label: work.sentence
+    }
+  ]
+}, [])
+
+export const DIMENSIONS_FOR_SELECT = [
+  {
+    label: "Evaluación",
+    options: [
+      { value: "e_ser", label: "Ser" },
+      { value: "e_saber", label: "Saber" },
+      { value: "e_hacer", label: "Hacer" },
+      { value: "e_decidir", label: "Decidir" },
+    ],
+  },
+  {
+    label: "Auto evaluación",
+    options: [
+      { value: "a_ser", label: "Ser [Auto]" },
+      { value: "a_decidir", label: "Decidir [Auto]" },
+    ],
+  }
+]
